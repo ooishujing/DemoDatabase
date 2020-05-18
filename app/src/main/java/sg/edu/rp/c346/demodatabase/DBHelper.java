@@ -71,7 +71,7 @@ public class DBHelper extends SQLiteOpenHelper {
         // Create an ArrayList that holds String objects
         ArrayList<Task> tasks = new ArrayList<Task>();
         // Select all the tasks' description
-        String selectQuery = "SELECT * FROM " + TABLE_TASK;
+        String selectQuery = "SELECT *"+ " FROM " + TABLE_TASK;
 
         // Get the instance of database to read
         SQLiteDatabase db = this.getReadableDatabase();

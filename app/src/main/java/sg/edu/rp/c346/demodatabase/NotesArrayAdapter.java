@@ -1,15 +1,15 @@
 package sg.edu.rp.c346.demodatabase;
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListAdapter;
 import android.widget.TextView;
+import android.widget.ArrayAdapter;
 
 import java.util.ArrayList;
 
-public class ArrayAdapter extends android.widget.ArrayAdapter<Task> {
+public class NotesArrayAdapter extends ArrayAdapter<Task> {
     // Create ArrayList of objects
     private ArrayList<Task> objects;
     // To hold the context object
@@ -17,7 +17,7 @@ public class ArrayAdapter extends android.widget.ArrayAdapter<Task> {
     // Create the UI objects to hold the UI elements in row layout
     private TextView tvID,tvDesc,tvDate;
 
-    public ArrayAdapter(Context context, int resource,
+    public NotesArrayAdapter(Context context, int resource,
                         ArrayList<Task> objects) {
         super(context, resource, objects);
         // Store the ArrayList of objects passed to this adapter
@@ -44,10 +44,11 @@ public class ArrayAdapter extends android.widget.ArrayAdapter<Task> {
         //  We get back the object at the same index.
         Task object = objects.get(pos);
         // Set the TextView to show the object info
-        tvID.setText(object.getId());
+        tvID.setText(object.getId() + "");
         tvDesc.setText(object.getDescription());
         tvDate.setText(object.getDate());
         // Return this row that is being populated.
         return rowView;
     }
 }
+

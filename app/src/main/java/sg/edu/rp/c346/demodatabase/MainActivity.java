@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
@@ -15,7 +16,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
     Button btnInsert, btnGetTasks;
     TextView tvResults;
-    ArrayAdapter adapter;
+    NotesArrayAdapter adapter;
     ListView lv;
 
 
@@ -56,8 +57,8 @@ public class MainActivity extends AppCompatActivity {
                 ArrayList<Task> data = db.getTaskContent();
                 db.close();
 
-                ArrayAdapter aa = new ArrayAdapter(getApplicationContext(), R.layout.row,data);
-                lv.setAdapter(aa);
+                ArrayAdapter adapter =  new NotesArrayAdapter(getApplicationContext(), R.layout.row,data);
+                lv.setAdapter(adapter);
             }
         });
 
